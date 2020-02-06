@@ -1,9 +1,10 @@
-#include <iostream>
 #include <sys/time.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int NthPrime(int n) {
     int i = 3, j = 1;
-    while (true) {
+    while (1) {
         j = j + 2;
         if (j > i / j) {
             n = n - 1;
@@ -22,7 +23,7 @@ int NthPrime(int n) {
 
 int64_t getCurrentTime() {
     struct timeval tv;
-    gettimeofday(&tv, NULL);
+    gettimeofday(&tv,NULL);
     return tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
 
@@ -32,7 +33,7 @@ int main() {
     int result = NthPrime(n);
     int64_t e = getCurrentTime();
     int64_t time = e - s;
-    std::cout << "第" << n << "个素数的值是:" << result << " 耗时" << time << "毫秒" << std::endl;
+    printf("答案是%d，耗时%lld",result,time);
     return 0;
 }
 
