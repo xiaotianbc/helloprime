@@ -5,7 +5,7 @@ fn nth_prime(mut n: u32) -> u32 {
     let mut j = 1;
     loop {
         j = j + 2;
-        if j > i / j {
+        if j * j > i {
             n = n - 1;
             if n == 1 {
                 break;

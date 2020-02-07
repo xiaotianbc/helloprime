@@ -8,7 +8,7 @@ sub get_prime{
   $j=1;
   while (true){
     $j=$j+2;
-    if ($j>$i/$j){
+    if ($j * $j >$i){
       $n=$n-1;
       if ($n==1){
         last;

@@ -2,7 +2,7 @@ function nthPrime(n) {
     let i = 3, j = 1;
     while (true) {
         j = j + 2;
-        if (j > i / j) {
+        if (j * j > i) {
             n--;
             if (n === 1) {
                 return i

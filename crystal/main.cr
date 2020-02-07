@@ -17,8 +17,8 @@ def nth_prime(n)
   end
   return i;
 end
-t1 = Time.now
+t1 = Time.local
 res = nth_prime(300000)
-t2 = Time.now
-time = ((t2 - t1) * 1000)
-puts "答案是#{res},耗时： #{time}ms"
+t2 = Time.local
+time = (t2 - t1)
+puts "答案是#{res},耗时： #{time}s"
