@@ -1,6 +1,6 @@
 #include <sys/time.h>
 #include <stdio.h>
-
+#include <sys/types.h> //Debian系统gcc需要，Mac下不用
 unsigned int NthPrime(unsigned int n) {
     unsigned int i = 3, j = 1;
     while (1) {

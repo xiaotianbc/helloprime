@@ -1,4 +1,4 @@
-use chrono::prelude::*;
+use std::time::Instant;
 
 fn nth_prime(mut n: u32) -> u32 {
     let mut i = 3;
@@ -21,10 +21,8 @@ fn nth_prime(mut n: u32) -> u32 {
 }
 
 fn main() {
-    let n = 300000;
-    let st: DateTime<Local> = Local::now();
-    let result = nth_prime(n);
-    let et: DateTime<Local> = Local::now();
-    let du = (et - st).num_milliseconds();
+    let now = Instant::now();
+    let result = nth_prime(300000);
+    let du = now.elapsed().as_millis();
     println!("答案是:{},耗时:{}ms", result, du);
 }
