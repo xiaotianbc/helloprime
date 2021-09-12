@@ -1,32 +1,35 @@
-static int NthPrime(int n)
-{
-    int i = 3, j = 1;
-    while (true)
+
+    #region 玩具性能测试
+    static int NthPrime(int n)
     {
-        j += 2;
-        if (j * j > i)
+        int i = 3, j = 1;
+        while (true)
         {
-            n--;
-            if (n == 1)
+            j += 2;
+            if (j * j > i)
             {
-                break;
+                n--;
+                if (n == 1)
+                {
+                    break;
+                }
+                i += 2;
+                j = 1;
             }
-            i += 2;
-            j = 1;
+            else if (i % j == 0)
+            {
+                i += 2;
+                j = 1;
+            }
         }
-        else if (i % j == 0)
-        {
-            i += 2;
-            j = 1;
-        }
+        return i;
     }
-    return i;
-}
-
-
-long s = DateTime.Now.Ticks;
-int n = 300000;
-int result = NthPrime(n);
-long e = DateTime.Now.Ticks;
-long time = e - s;
-Console.WriteLine("第" + n + "个素数的值是:" + result + " 耗时" + time );
+    private void TonyBench()
+    {
+        var s = System.Diagnostics.Stopwatch.StartNew();
+        int n = 300000;
+        int result = NthPrime(n);
+        var t1 = s.ElapsedMilliseconds;
+        Debug.Log("第" + n + "个素数的值是:" + result + " 耗时" + t1);
+    }
+    #endregion
