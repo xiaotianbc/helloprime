@@ -1,3 +1,7 @@
+#SingleInstance, Force
+SendMode Input
+SetWorkingDir, %A_ScriptDir%
+
 NthPrime(n){
     i:=3
     j:=1
@@ -19,5 +23,9 @@ NthPrime(n){
     Return i
 }
 
+st:=A_TickCount
 ret:=NthPrime(10000)
-msgbox, %ret%
+et:=A_TickCount
+during:=et-st
+
+msgbox, result: %ret% cost: %during% ms
