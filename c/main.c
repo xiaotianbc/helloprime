@@ -1,6 +1,6 @@
 #include <sys/time.h>
 #include <stdio.h>
-#include <sys/types.h> //Debian系统gcc需要，Mac下不用
+
 unsigned int NthPrime(unsigned int n) {
     unsigned int i = 3, j = 1;
     while (1) {
@@ -20,18 +20,18 @@ unsigned int NthPrime(unsigned int n) {
     return i;
 }
 
-int64_t getCurrentTime() {
+long getCurrentTime() {
     struct timeval tv;
     gettimeofday(&tv,NULL);
     return tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
 
 int main() {
-    int64_t s = getCurrentTime();
+    long s = getCurrentTime();
     unsigned int n = 300000;
     unsigned int result = NthPrime(n);
-    int64_t e = getCurrentTime();
-    int64_t time = e - s;
+    long e = getCurrentTime();
+    long time = e - s;
     printf("答案是%d，耗时%lld",result,time);
     return 0;
 }
